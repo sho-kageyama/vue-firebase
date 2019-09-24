@@ -6,6 +6,8 @@ import SignIn from '@/components/SignIn'
 import SignUp from '@/components/SignUp'
 import Menu from '@/components/Menu'
 import Item from '@/components/Item'
+import User from '@/components/User'
+import UserDetail from '@/components/UserDetail'
 import firebase from 'firebase'
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -43,6 +45,16 @@ let router = new Router({
       path: '/items',
       name: 'Item',
       component: Item
+    },
+    {
+      path: '/users',
+      name: 'User',
+      component: User
+    },
+    {
+      path: '/user-detail',
+      name: 'UserDetail',
+      component: UserDetail
     }
   ]
 })

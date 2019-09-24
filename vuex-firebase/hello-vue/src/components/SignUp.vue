@@ -12,9 +12,6 @@
 </template>
 
 <script>
-import firebase from 'firebase'
-import 'firebase/firestore'
-
 export default {
   name: 'SignUp',
   data () {
@@ -25,23 +22,8 @@ export default {
   },
   methods: {
     signUp: function () {
-      firebase.auth().createUserWithEmailAndPassword(this.username, this.password)
-        .then(user => {
-          alert('Create acount:' + user.user.email)
-          console.log(user.user.uid)
-          const userId = user.user.uid
-          const users = firebase.firestore().collection('users')
-          const userData = {name: user.user.email}
-          users.doc(userId).set(userData)
-            .then(ref => {
-              console.log('Documents ID: ', ref.id)
-            }).catch(err => {
-              console.log('error document: ', err.message)
-            })
-        })
-        .catch(error => {
-          alert(error.message)
-        })
+      const data = {username: this.username, password: this.password}
+      this.$store.dispatch('createUser', data)
     }
   }
 }

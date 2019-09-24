@@ -2,9 +2,9 @@
     <div class="menu">
         <h2>Menu</h2>
         <ul class="menu-ul nav nav-tabs mt-5">
-            <li class="nav-item"><a class="nav-link">Prodact</a></li>
-            <li class="nav-item"><router-link to="/items" class="nav-link active">Item</router-link></li>
-            <li class="nav-item"><a class="nav-link">User</a></li>
+            <li class="nav-item"><a class="nav-link active">Prodact</a></li>
+            <li class="nav-item"><router-link to="/items" class="nav-link">Item</router-link></li>
+            <li class="nav-item"><router-link to="/users" class="nav-link">User</router-link></li>
             <li class="nav-item"><a class="nav-link">Cart</a></li>
         </ul>
         <ul class="mt-5">

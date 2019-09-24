@@ -1,7 +1,7 @@
 <template>
     <div class="item">
         <h2>Item</h2>
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th>No</th>
@@ -24,34 +24,20 @@
 </template>
 
 <script>
-import firebase from 'firebase'
-// const prodacts = firebase.firestore().collection('prodacts')
-// var array = []
-// prodacts.get().then((coll) => {
-//   coll.forEach((doc) => {
-//     array.push(doc.data())
-//   })
-// })
-
 export default {
   name: 'Item',
   data () {
-    var array = []
-    const prodacts = firebase.firestore().collection('prodacts')
-    prodacts.get().then((coll) => {
-      coll.forEach(doc => {
-        array.push(doc.data())
-      })
-    })
+    this.info()
     return {
-      itemList: array
+      itemList: this.$store.getters.getItems
     }
   },
   methods: {
     back: function () {
       this.$router.back()
     },
-    info: function () {
+    info: async function () {
+      await this.$store.dispatch('itemList')
     }
   }
 }
