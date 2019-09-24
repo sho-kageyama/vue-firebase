@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import BoootstrapVue from 'bootstrap-vue'
-import HelloWorld from '@/components/HelloWorld'
 import SignIn from '@/components/SignIn'
 import SignUp from '@/components/SignUp'
 import Menu from '@/components/Menu'
@@ -20,11 +19,6 @@ let router = new Router({
     {
       path: '*',
       redirect: 'signin'
-    },
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
     },
     {
       path: '/signup',

@@ -30,15 +30,16 @@
 <script>
 export default {
   name: 'User',
-  data: function () {
-    this.setUserList()
+  data  () {
     return {
-      userList: this.$store.getters.getUsers
+      userList: this.setUserList()
     }
   },
   methods: {
-    setUserList: function () {
-      this.$store.dispatch('userList')
+    setUserList: async function () {
+      await this.$store.dispatch('userList')
+      var users = await this.$store.getters.getUsers
+      this.userList = users
     },
     detail: async function (name) {
       await this.$store.dispatch('userInfo', name)

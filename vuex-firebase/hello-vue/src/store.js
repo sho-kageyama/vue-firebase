@@ -18,7 +18,6 @@ export default new Vuex.Store({
       return state.items
     },
     getUser (state) {
-      console.log('getUser')
       return state.user
     }
   },
@@ -30,7 +29,6 @@ export default new Vuex.Store({
       state.items = data
     },
     setUser (state, data) {
-      console.log('setUser')
       state.user = data
     }
   },
@@ -86,6 +84,15 @@ export default new Vuex.Store({
           commit('setUser', user)
         })
       }
+    },
+    async updateUser ({commit}, data) {
+      const users = firebase.firestore().collection('users')
+      const user = {name: data.name, email: data.email, password: data.password, authLevel: data.authLevel}
+      users.doc(data.id).set(user).then(ref => {
+        console.log('success: ', ref.id)
+      }).catch(err => {
+        console.log('error:  ', err.message)
+      })
     }
   }
 })

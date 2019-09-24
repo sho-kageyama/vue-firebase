@@ -27,14 +27,17 @@
 export default {
   name: 'Item',
   data () {
-    this.info()
     return {
-      itemList: this.$store.getters.getItems
+      itemList: this.setItemList()
     }
   },
   methods: {
     back: function () {
       this.$router.back()
+    },
+    setItemList: async function () {
+      await this.$store.dispatch('itemList')
+      this.itemList = await this.$store.getters.getItems
     },
     info: async function () {
       await this.$store.dispatch('itemList')
