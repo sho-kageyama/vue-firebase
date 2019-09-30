@@ -23,7 +23,6 @@
             </tbody>
         </table>
         <router-link to="/menu" class="btn btn-outline-danger mt-5" >Back</router-link>
-        <button class="btn btn-outline-secondary" @click="info">Info</button>
     </div>
 </template>
 
@@ -46,9 +45,6 @@ export default {
       var user = await this.$store.getters.getUser
       console.log('userInfo: ', user)
       this.$router.push('/user-detail')
-    },
-    info: function () {
-      console.log(this.$store.getters.getUsers)
     }
   }
 }

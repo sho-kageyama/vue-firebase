@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import firebase from 'firebase'
 import store from './store'
+import modal from 'vue-js-modal'
+import MyModal from './components/Tools/MyModal'
 
 Vue.config.productionTip = false
 
@@ -24,7 +26,8 @@ firebase.initializeApp(config)
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {App, MyModal},
   template: '<App/>',
-  store
+  store,
+  modal
 })

@@ -1,18 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import VModal from 'vue-js-modal'
 import BoootstrapVue from 'bootstrap-vue'
 import SignIn from '@/components/SignIn'
 import SignUp from '@/components/SignUp'
 import Menu from '@/components/Menu'
 import Item from '@/components/Item'
-import User from '@/components/User'
-import UserDetail from '@/components/UserDetail'
+import User from '@/components/User/User'
+import UserDetail from '@/components/User/UserDetail'
 import firebase from 'firebase'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-Vue.use(Router, BoootstrapVue)
+Vue.use(Router, BoootstrapVue, VModal)
 
 let router = new Router({
   routes: [

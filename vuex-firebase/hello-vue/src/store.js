@@ -93,6 +93,14 @@ export default new Vuex.Store({
       }).catch(err => {
         console.log('error:  ', err.message)
       })
+    },
+    async deleteUser ({commit}, data) {
+      const users = firebase.firestore().collection('users')
+      users.doc(data.id).delete().then(ref => {
+        console.log('success: ', ref.id)
+      }).catch(err => {
+        console.log('error: ', err.message)
+      })
     }
   }
 })

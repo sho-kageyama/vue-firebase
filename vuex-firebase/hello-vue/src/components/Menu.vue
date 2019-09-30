@@ -8,7 +8,7 @@
             <li class="nav-item"><a class="nav-link">Cart</a></li>
         </ul>
         <ul class="mt-5">
-        <button class="btn btn-outline-success" @click="userInfo">Info</button>
+        <!-- <button class="btn btn-outline-success" @click="userInfo">Info</button> -->
         <button class="btn btn-outline-danger" @click="signout">Sign Out</button>
         </ul>
     </div>
@@ -20,19 +20,19 @@ import firebase from 'firebase'
 export default {
   name: 'Menu',
   methods: {
-    userInfo: function () {
-      const id = firebase.auth().currentUser.uid
-      var data
-      const info = firebase.firestore().collection('users').doc(id)
-      info.get().then((doc) => {
-        if (doc.exists) {
-          data = doc.data()
-          console.log('Document data:', doc.data().authLevel)
-          console.log('data :', data)
-        }
-      })
-      console.log(id)
-    },
+    // userInfo: function () {
+    //   const id = firebase.auth().currentUser.uid
+    //   var data
+    //   const info = firebase.firestore().collection('users').doc(id)
+    //   info.get().then((doc) => {
+    //     if (doc.exists) {
+    //       data = doc.data()
+    //       console.log('Document data:', doc.data().authLevel)
+    //       console.log('data :', data)
+    //     }
+    //   })
+    //   console.log(id)
+    // },
     signout: function () {
       firebase.auth().signOut().then(() => {
         this.$router.push('/signin')
